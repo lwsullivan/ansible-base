@@ -1,7 +1,7 @@
 ---
 - name: yum update all installed packages
 
-  hosts: all-centos7
+  hosts: ceph-nodes
   become: yes
   become_method: sudo
 
