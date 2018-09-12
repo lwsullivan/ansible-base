@@ -1,0 +1,13 @@
+---
+- name: yum update all installed packages
+
+  hosts: all-centos7
+  become: yes
+  become_method: sudo
+
+  tasks:
+
+  - name: upgrade all packages
+    yum:
+      name: '*'
+      state: latest
