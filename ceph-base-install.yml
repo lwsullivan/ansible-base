@@ -71,7 +71,7 @@
   - name: push cephdeploy public ssh key
     copy:
       src: /srv/files/ceph/ceph-authorized-keys
-      dest: /home/cephdeploy/.ssh/authorized-keys
+      dest: /home/cephdeploy/.ssh/authorized_keys
       owner: cephdeploy
       group: cephdeploy
       mode: 0600
