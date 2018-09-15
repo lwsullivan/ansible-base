@@ -85,8 +85,10 @@
       zone: public
       service: ceph-mon
       permanent: true
+      state: enabled
 
   - firewalld:
       zone: public
       service: ceph
       permanent: true
+      state: enabled
