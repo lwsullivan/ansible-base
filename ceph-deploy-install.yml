@@ -80,3 +80,9 @@
     selinux:
       policy: targeted
       state: permissive
+
+  - name: install ceph-deploy
+    yum:
+      name: ceph-deploy
+      state: latest
+
