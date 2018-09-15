@@ -66,7 +66,7 @@
       state: directory
       owner: cephdeploy
       group: cephdeploy
-      mode: 755
+      mode: 0755
 
   - name: push cephdeploy public ssh key
     copy:
@@ -75,3 +75,8 @@
       owner: cephdeploy
       group: cephdeploy
       mode: 0600
+
+  - name: set selinux permissive
+    selinux:
+      policy: targeted
+      state: permissive
