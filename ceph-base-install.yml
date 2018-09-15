@@ -38,7 +38,7 @@
 
   - name: push sudoers file
     copy:
-      src: /srv/files/sudoers
+      src: /srv/files/ceph/sudoers
       dest: /etc/sudoers.d/sudoers
       owner: root
       group: root
@@ -53,3 +53,18 @@
     user:
       name: cephdeploy
       groups: sudoers
+
+  - name: create .ssh directory
+    file:
+      path: /home/.ssh state=directory
+      owner: cephdeploy
+      group: cephdeploy
+      mode: 755
+
+  - name: push cephdeploy public ssh key
+    copy:
+      src: /srv/files/ceph/ceph-authorized-keys
+      dest: /home/cephdeploy/.ssh/authorized-keys
+      owner: cephdeploy
+      group: cephdeploy
+      mode: 0600
