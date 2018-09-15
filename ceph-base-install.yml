@@ -36,6 +36,12 @@
       name: ntp-doc
       state: latest
 
+  - name: enable ntpd
+    service:
+      name: ntpd
+      enabled: yes
+      state: restarted
+
   - name: push sudoers file
     copy:
       src: /srv/files/ceph/sudoers
@@ -56,7 +62,8 @@
 
   - name: create .ssh directory
     file:
-      path: /home/.ssh state=directory
+      path: /home/.ssh
+      state: directory
       owner: cephdeploy
       group: cephdeploy
       mode: 755
