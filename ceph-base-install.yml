@@ -45,7 +45,7 @@
   - name: push sudoers file
     copy:
       src: /srv/files/ceph/sudoers
-      dest: /etc/sudoers.d/sudoers
+      dest: /etc/sudoers.d/ceph-sudoers
       owner: root
       group: root
       mode: 0440
