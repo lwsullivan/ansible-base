@@ -62,7 +62,7 @@
 
   - name: create .ssh directory
     file:
-      path: /home/.ssh
+      path: /home/cephdeploy/.ssh
       state: directory
       owner: cephdeploy
       group: cephdeploy
