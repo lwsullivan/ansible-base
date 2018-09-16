@@ -86,3 +86,7 @@
       name: ceph-deploy
       state: latest
 
+  - name: install python-setuptools
+    yum:
+      name: python-setuptools
+      state: latest
