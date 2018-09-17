@@ -90,3 +90,8 @@
     yum:
       name: python-setuptools
       state: latest
+
+  - name: install net-tools
+    yum:
+      name: net-tools
+      state: latest
