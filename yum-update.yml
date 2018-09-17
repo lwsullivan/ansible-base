@@ -7,8 +7,6 @@
 
   tasks:
 
-  - name: hello
-    shell: echo "greetings, program!"
   - name: upgrade all packages
     yum:
       name: '*'
