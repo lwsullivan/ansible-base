@@ -1,5 +1,5 @@
 ---
-- name: yum update all installed packages
+- name: yum install tools packages
 
   hosts: all
   become: yes
