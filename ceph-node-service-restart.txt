@@ -1,6 +1,13 @@
-- name: systemd - service - ceph
-  systemd:
-    state: restarted
-    name: ceph.target
+---
+- name: restart ceph services
+
+  hosts: all
+  become: yes
+  become_method: sudo
+  
+  - name: systemd - service - ceph
+    systemd:
+      state: restarted
+      name: ceph.target
 
 	
