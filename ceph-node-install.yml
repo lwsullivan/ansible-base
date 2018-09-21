@@ -82,8 +82,8 @@
       state: permissive
 
   - firewalld:
-      zone: public
-      service: ceph-mon
+      zone: ceph-backend
+      interface: ens224
       permanent: true
       state: enabled
 
