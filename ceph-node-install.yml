@@ -100,3 +100,4 @@
     
   - name: assign ens224 to cephbackend network  
     command: firewall-cmd --permanent --zone=cephbackend --change-interface=ens224
+
