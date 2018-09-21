@@ -82,7 +82,7 @@
       state: permissive
 
   - name: create new firewall zone for ceph
-    command: firewall-cmd --permanent --new-zone cephbackend
+    command: firewall-cmd --permanent --new-zone=cephbackend
       
   - firewalld:
       zone: cephbackend
@@ -95,3 +95,23 @@
       service: ceph
       permanent: true
       state: enabled
+      
+  --firewalld:
+      zone: cephbackend
+      port: 6800-7300/tcp
+      permanent: true
+      state: enabled
+      
+  --firewalld:
+      zone: cephbackend
+      port: 6789/tcp
+      permanent: true
+      state: enabled
+      
+  --firewalld:
+      zone: public
+      port: 7480/tcp
+      permanent: true
+      state: enabled
+
+      

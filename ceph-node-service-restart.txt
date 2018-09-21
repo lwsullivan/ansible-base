@@ -1,0 +1,6 @@
+- name: systemd - service - ceph
+  systemd:
+    state: restarted
+    name: ceph.target
+
+	
