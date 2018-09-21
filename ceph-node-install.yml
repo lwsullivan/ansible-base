@@ -81,6 +81,9 @@
       policy: targeted
       state: permissive
 
+  - name: create new firewall zone for ceph
+    command: firewall-cmd --permanent --new-zone ceph-backend
+      
   - firewalld:
       zone: ceph-backend
       interface: ens224
