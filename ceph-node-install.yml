@@ -79,39 +79,22 @@
   - name: set selinux permissive
     selinux:
       policy: targeted
-      state: permissive
+      state: permissive      
 
-  - name: create new firewall zone for ceph
-    command: firewall-cmd --permanent --new-zone=cephbackend
-      
-  - firewalld:
-      zone: cephbackend
-      interface: ens224
-      permanent: true
-      state: enabled
-
-  - firewalld:
+  - name: firewalld - enable ceph service - public zone
+    firewalld:
       zone: public
       service: ceph
       permanent: true
       state: enabled
-      
-  --firewalld:
+            
+  - name: firewalld - assign cephbackend interface
+    firewalld:
       zone: cephbackend
-      port: 6800-7300/tcp
+      interface: ens224
       permanent: true
       state: enabled
       
-  --firewalld:
-      zone: cephbackend
-      port: 6789/tcp
-      permanent: true
-      state: enabled
-      
-  --firewalld:
-      zone: public
-      port: 7480/tcp
-      permanent: true
-      state: enabled
-
-      
+  - name: trust cephbackend network
+    command: firewall-cmd --permanent --permanent --set-target=ACCEPT
+    
