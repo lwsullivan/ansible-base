@@ -82,10 +82,10 @@
       state: permissive
 
   - name: create new firewall zone for ceph
-    command: firewall-cmd --permanent --new-zone ceph-backend
+    command: firewall-cmd --permanent --new-zone cephbackend
       
   - firewalld:
-      zone: ceph-backend
+      zone: cephbackend
       interface: ens224
       permanent: true
       state: enabled
