@@ -7,12 +7,14 @@
 
   tasks:
 
-    - yum:
-      name: '*'
-      state: latest
-      when: ansible_distribution == 'CentOS' or ansible_distribution == 'Red Hat Enterprise Linux'
+    - name: yum install latest
+      yum:
+        name: '*'
+        state: latest
+        when: ansible_distribution == 'CentOS' or ansible_distribution == 'Red Hat Enterprise Linux'
       
-    - apt:
-      name: '*'
-      state: latest
-      when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'      
+    - name: apt install latest
+      apt:
+        name: '*'
+        state: latest
+        when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'      
