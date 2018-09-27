@@ -8,13 +8,9 @@
   tasks:
 
     - name: yum install latest
-      yum:
-        name: '*'
-        state: latest
+      command: yum -y update
       when: ansible_distribution == 'CentOS' or ansible_distribution == 'Red Hat Enterprise Linux'
       
-    - name: apt install latest
-      apt:
-        name: '*'
-        state: latest
+    - name: apt update
+      command: apt update
       when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'      
