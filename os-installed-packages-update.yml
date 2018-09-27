@@ -13,6 +13,8 @@
         state: latest
       when: ansible_distribution == 'CentOS' or ansible_distribution == 'Red Hat Enterprise Linux'
       
-    - name: apt update
-      command: apt update
+    - name: apt update latest
+      apt:
+        name: '*'
+        state: latest
       when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'      
