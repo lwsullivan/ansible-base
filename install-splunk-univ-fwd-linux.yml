@@ -7,7 +7,15 @@
 
   tasks:
   
-  - name: Install RPM from URL
+  - name: Install universal forwarder from RPM from URL
     yum: 
       name: http://north40-rpms.s3-website-us-east-1.amazonaws.com/splunkforwarder-7.2.0-8c86330ac18-linux-2.6-x86_64.rpm 
       state: present
+      
+  - name: enable forwarder service and accept license
+    command: /opt/splunkforwarder/bin/splunk enable boot-start --accept-license --answer-yes --no-prompt
+
+  - name: start splunk service
+    service:
+      name: splunk
+      state: restarted
