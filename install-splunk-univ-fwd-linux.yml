@@ -21,7 +21,10 @@
       dest: /tmp
       
   - name: install linux TA
-    command: /usr/bin/tar -xzf /tmp/splunk-add-on-for-unix-and-linux_600.tgz -C /opt/splunkforwarder/etc/apps/
+    unarchive:
+    src: https://s3.amazonaws.com/north40-rpms/splunk-add-on-for-unix-and-linux_600.tgz
+    dest: /opt/splunkforwarder/etc/apps/
+    remote_src: yes
     
   - name: set outputs.conf
     copy: 
