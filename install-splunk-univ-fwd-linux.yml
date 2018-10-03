@@ -1,0 +1,11 @@
+---
+- name: yum install tools packages
+
+  hosts: all
+  become: yes
+  become_method: sudo
+
+  tasks:
+  
+  - name: Install RPM from URL
+    yum: name=http://north40-rpms.s3-website-us-east-1.amazonaws.com/splunk-7.2.0-8c86330ac18-linux-2.6-x86_64.rpm
