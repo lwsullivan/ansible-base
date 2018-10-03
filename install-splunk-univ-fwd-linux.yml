@@ -15,7 +15,24 @@
   - name: enable forwarder service and accept license
     command: /opt/splunkforwarder/bin/splunk enable boot-start --accept-license --answer-yes --no-prompt
 
+  - name: fetch linux TA
+    get_url:
+      url: https://s3.amazonaws.com/north40-rpms/splunk-add-on-for-unix-and-linux_600.tgz    
+      dest: /tmp
+      
+  - name: install linux TA
+    command: /usr/bin/tar -xzf /tmp/splunk-add-on-for-unix-and-linux_600.tgz -C /opt/splunkforwarder/etc/apps/
+    
+  - name: set outputs.conf
+    copy: 
+      src: ./files/splunk-universal-forwarder/outputs.conf
+      dest: /opt/splunkforwarder/etc/system/local/outputs.conf
+      owner: splunk
+      group: splunk
+      mode: 0644
+    
   - name: start splunk service
-    service:
+    systemd:
       name: splunk
+      enabled: yes
       state: restarted
