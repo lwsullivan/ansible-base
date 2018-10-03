@@ -34,6 +34,14 @@
       group: splunk
       mode: 0644
     
+  - name: set inputs.conf
+    copy: 
+      src: ./files/splunk-universal-forwarder/inputs.conf
+      dest: /opt/splunkforwarder/etc/system/local/inputs.conf
+      owner: splunk
+      group: splunk
+      mode: 0644
+    
   - name: start splunk service
     systemd:
       name: splunk
