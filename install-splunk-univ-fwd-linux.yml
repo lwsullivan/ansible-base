@@ -33,11 +33,17 @@
       owner: splunk
       group: splunk
       mode: 0644
+  
+  - name: create local directory for linux TA
+    file:
+      path: /opt/splunkforwarder/etc/apps/Splunk_TA_nix/local
+      state: directory
+      mode: 0755      
     
   - name: set inputs.conf
     copy: 
       src: ./files/splunk-universal-forwarder/inputs.conf
-      dest: /opt/splunkforwarder/etc/system/local/inputs.conf
+      dest: /opt/splunkforwarder/etc/apps/Splunk_TA_nix/local/inputs.conf
       owner: splunk
       group: splunk
       mode: 0644
