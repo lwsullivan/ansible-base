@@ -13,12 +13,15 @@
         state: latest
       when: ansible_distribution == 'CentOS' or ansible_distribution == 'Red Hat Enterprise Linux'
       
-    - name: apt update latest
+    - name: apt cache update
+      apt:
+        update_cache: yes
+      when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
+
+      - name: apt update latest
       apt:
         name: '*'
         state: latest
-        update_cache: yes
-        force_apt_get: True
       when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'      
       
     - name: apt autoremove
