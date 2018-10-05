@@ -18,4 +18,11 @@
         name: '*'
         state: latest
         update_cache: yes
+        force_apt_get: True
       when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'      
+      
+    - name: apt autoremove
+      apt:
+        autoremove: yes
+        autoclean: yes
+      when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
