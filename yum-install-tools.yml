@@ -11,3 +11,8 @@
     yum:
       name: 'net-tools'
       state: latest
+
+  - name: install epel
+    yum:
+      name: 'epel-release'
+      state: latest
