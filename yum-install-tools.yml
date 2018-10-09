@@ -16,3 +16,8 @@
     yum:
       name: 'epel-release'
       state: latest
+      
+  - name: install certbot
+    yum:
+      name: certbot
+      state: latest
