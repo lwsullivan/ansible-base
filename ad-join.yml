@@ -5,11 +5,6 @@
   become: yes
   become_method: sudo
 
-  vars_prompt:
-    - name: "ad_password"
-      prompt: "password for AD join:"
-      private: yes
-
   tasks:
 
   - name: install the latest version of sssd
@@ -74,5 +69,5 @@
     ignore_errors: true
 
   - name: Join system to AD and put the computer object in the Linux OU
-    command: /bin/bash -c "echo '__sgttkcom' | /usr/sbin/realm join --user=ADMINISTRATOR@radiofreelol.com --computer-ou=OU=linux-machines,DC=radiofreelol,DC=com radiofreelol.com"
+    command: /bin/bash -c "echo '' | /usr/sbin/realm join --user=ADMINISTRATOR@radiofreelol.com --computer-ou=OU=linux-machines,DC=radiofreelol,DC=com radiofreelol.com"
     when: realmd_bound is failed
