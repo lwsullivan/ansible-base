@@ -16,63 +16,9 @@
   
   tasks:
 
-  - name: debug check that ad_password is set
-    debug:
-      var: ad_password
-  
-  - name: install the latest version of sssd
+  - name: install the latest version of needed packages
     yum:
-      name: sssd
-      state: latest
-
-  - name: install the latest version of realmd
-    yum:
-      name: realmd
-      state: latest
-
-  - name: install the latest version of oddjob
-    yum:
-      name: oddjob
-      state: latest
-
-  - name: install the latest version of oddjob-mkhomedir
-    yum:
-      name: oddjob-mkhomedir
-      state: latest
-
-  - name: install the latest version of adcli
-    yum:
-      name: adcli
-      state: latest
-
-  - name: install the latest version of samba-common
-    yum:
-      name: samba-common
-      state: latest
-
-  - name: install the latest version of samba-common-tools
-    yum:
-      name: samba-common-tools
-      state: latest
-
-  - name: install the latest version of krb5-workstation
-    yum:
-      name: krb5-workstation
-      state: latest
-
-  - name: install the latest version of openldap-clients
-    yum:
-      name: openldap-clients
-      state: latest
-
-  - name: install the latest version of policycoreutils-python
-    yum:
-      name: policycoreutils-python
-      state: latest
-
-  - name: install the latest version of pexpect
-    yum:
-      name: pexpect
+      name: sssd, realmd, oddjob, oddjob-mkhomedir, adcli, samba-common, samba-common-tools, krb5-workstation, openldap-clients, policycoreutils-python, pexpect
       state: latest
 
 # this check looks broken, but we should see if there is any current realm binding
