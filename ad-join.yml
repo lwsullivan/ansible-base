@@ -1,7 +1,7 @@
 ---
 - name: join centos7 machine to AD
 
-  hosts: all
+  hosts: {{ target_group }}
   become: yes
   become_method: sudo
 
