@@ -71,11 +71,16 @@
       name: pexpect
       state: latest
 
-  - name: Check if machine is bound
-    shell: /bin/bash -c "realm list | grep sssd"
-    register: realmd_bound
-    changed_when: false
-    ignore_errors: true
+# this check looks broken, but we should see if there is any current realm binding
+
+#  - name: Check if machine is bound
+#    shell: /bin/bash -c "realm list | grep sssd"
+#    register: realmd_bound
+#    changed_when: false
+#    ignore_errors: true
+
+# we might also want to check if there is already a computer object for this machine, and 
+# skip the join if the machine exists in AD...
 
   - name: Join system to AD and put the computer object in the Linux OU
     command: /bin/bash -c "echo '{{ ad_passwd }}' | /usr/sbin/realm join --user=ADMINISTRATOR@radiofreelol.com --computer-ou=OU=linux-machines,DC=radiofreelol,DC=com radiofreelol.com"
