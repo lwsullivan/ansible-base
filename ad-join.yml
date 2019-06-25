@@ -32,6 +32,13 @@
 # we might also want to check if there is already a computer object for this machine, and 
 # skip the join if the machine exists in AD...
 
+# the code below is bad, as it puts the password into the process table. Better would be to write a file
+# with that password, then use the arg to realm that allows you to read the password from a file...
+
   - name: Join system to AD and put the computer object in the Linux OU
     command: /bin/bash -c "echo '{{ ad_password }}' | /usr/sbin/realm join --user=ADMINISTRATOR@radiofreelol.com --computer-ou=OU=linux-machines,DC=radiofreelol,DC=com radiofreelol.com"
 #    when: realmd_bound is failed
+
+# need to configure login permissions. This is done with the "realm permit" command, which can take --groups as an arg
+# allowing the list of allowed users to be derived from AD group membership
+
