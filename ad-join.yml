@@ -16,6 +16,10 @@
   
   tasks:
 
+  - name: debug check that ad_password is set
+    debug:
+      var: ad_password
+  
   - name: install the latest version of sssd
     yum:
       name: sssd
@@ -83,5 +87,5 @@
 # skip the join if the machine exists in AD...
 
   - name: Join system to AD and put the computer object in the Linux OU
-    command: /bin/bash -c "echo '{{ ad_passwd }}' | /usr/sbin/realm join --user=ADMINISTRATOR@radiofreelol.com --computer-ou=OU=linux-machines,DC=radiofreelol,DC=com radiofreelol.com"
-    when: realmd_bound is failed
+    command: /bin/bash -c "echo '{{ ad_password }}' | /usr/sbin/realm join --user=ADMINISTRATOR@radiofreelol.com --computer-ou=OU=linux-machines,DC=radiofreelol,DC=com radiofreelol.com"
+#    when: realmd_bound is failed
