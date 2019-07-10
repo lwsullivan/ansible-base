@@ -1,0 +1,12 @@
+---
+- name: run ps against system, verifies connectivity
+
+  hosts: all
+  become: yes
+  become_method: sudo
+
+  tasks:
+  
+  - name: run ps process
+    command: /bin/ps -faux
+    check_mode: yes
