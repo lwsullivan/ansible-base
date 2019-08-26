@@ -12,7 +12,7 @@
     
   - name: post to splunk hec
     uri:
-      url: http://splunk.radiofreelol.com:8088
+      url: http://splunk.radiofreelol.com:8088/services/collector
       headers:
         Authorization: "Splunk a67ac3d1-93be-474a-847f-878f00db98b0"
       body: "this is a test message from job {{ tower_job_id }}"
