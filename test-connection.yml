@@ -9,7 +9,6 @@
   
   - name: run ps process
     command: /bin/ps -faux
-    check_mode: yes
     
   - name: post to splunk hec
     uri:
