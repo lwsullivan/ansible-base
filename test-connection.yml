@@ -16,7 +16,7 @@
       force_basic_auth: yes
       user: x
       password: "a67ac3d1-93be-474a-847f-878f00db98b0"
-      body: "{'tower-job-id': '{{ tower_job_id }}'}"
+      body: "{'event': 'tower_job_id={{ tower_job_id }} message=debug'}"
       body_format: json
       method: POST
       validate_certs: no
