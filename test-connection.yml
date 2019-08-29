@@ -13,6 +13,7 @@
   - name: post to splunk hec
     uri:
       url: https://splunk.radiofreelol.com:8088/services/collector/event
+      force_basic_auth: yes
       user: x
       password: "a67ac3d1-93be-474a-847f-878f00db98b0"
       body: "tower_job_id={{ tower_job_id }} foo=bar"
